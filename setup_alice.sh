@@ -6,12 +6,10 @@
 
 # Create a new user Alice_CSC820 without sudo privileges
 USERNAME="Alice_CSC820"
-PASSWORD="password123"
+PASSWORD="Password1!"
 
-echo "Creating user $USERNAME..."
+echo "Creating $USERNAME:$PASSWORD"
 sudo useradd -m -s /bin/bash "$USERNAME"
-echo "$USERNAME:$PASSWORD" | sudo chpasswd
-echo "User $USERNAME created with default password '$PASSWORD'. Please ask the user to change it."
 
 # Configure sudoers to allow only timedatectl for Alice_CSC820
 echo "Configuring sudoers to allow $USERNAME to use timedatectl..."

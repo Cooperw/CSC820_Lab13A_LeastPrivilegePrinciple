@@ -10,6 +10,7 @@ PASSWORD="Password1!"
 echo "Creating $USERNAME:$PASSWORD"
 sudo useradd -m -s /bin/bash "$USERNAME"
 SUDOERS_FILE="/etc/sudoers.d/$USERNAME"
+echo "$USERNAME ALL=(ALL) NOPASSWD: /usr/bin/timedatectl" | sudo tee "$SUDOERS_FILE" > /dev/null
 sudo chmod 440 "$SUDOERS_FILE"
 
 echo "Setup Complete. Verify 'timedatectl' appears with: sudo -l -U $USERNAME"
